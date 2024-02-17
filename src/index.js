@@ -2,11 +2,14 @@ import './styles/normalize.css';
 import './styles/index.css';
 import { productsApi } from './requests/products';
 import { createProdauctsMarkup } from './services/markupService';
-const listRef = document.querySelector('#allProducts');
+import { refs } from './js/refs';
+import { onSingleFormProductSubmit } from './js/onSingleFormProductSubmit';
 
 async function renderProducts() {
-  listRef.innerHTML = createProdauctsMarkup(
+  refs.list.innerHTML = createProdauctsMarkup(
     (await productsApi.getAll()).data.products
   );
 }
-renderProducts();
+// renderProducts();
+
+refs.singleProductForm.addEventListener('submit', onSingleFormProductSubmit);
