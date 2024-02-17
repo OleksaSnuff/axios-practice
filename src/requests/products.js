@@ -5,4 +5,9 @@ async function getAll() {
   return data;
 }
 
-export const productsApi = { getAll };
+async function getById(id) {
+  const data = await apiInstance.get(`/products/${id}`);
+  return data;
+}
+
+export const productsApi = { getAll, getById };
