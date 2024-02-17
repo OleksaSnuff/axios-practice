@@ -10,4 +10,12 @@ async function getById(id) {
   return data;
 }
 
-export const productsApi = { getAll, getById };
+async function add(product) {
+  const data = await apiInstance.post('/products/add', product);
+  return data;
+}
+
+
+export const productsApi = { getAll, getById, add };
+
+
